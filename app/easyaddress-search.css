@@ -1,0 +1,268 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font: 14px Arial;
+	margin: 0;
+	width: 100%;
+	min-height: 500px;
+}
+
+easyaddress-search,
+easyaddress-schools {
+	--primary-default: #20a286;
+	--primary: var(--primary-default);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+easyaddress-search .autocomplete {
+	/*the container must be positioned relative:*/
+	position: relative;
+	display: inline-block;
+	background-color: var(--primary, --primary-default);
+	padding: 0.5rem;
+}
+
+easyaddress-search .autocomplete input {
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background-color: var(--primary-contrast, #fff);
+	padding: 10px;
+	font-size: 14px;
+	width: 100%;
+}
+
+easyaddress-search .autocomplete input:focus-visible {
+	outline: none;
+}
+
+easyaddress-search .autocomplete .clear-input {
+	position: absolute;
+	right: 7px;
+	top: 0;
+	bottom: 0;
+	padding: 8px;
+	cursor: pointer;
+	display: none;
+	align-items: center;
+}
+
+easyaddress-search .autocomplete,
+easyaddress-search .result,
+easyaddress-search .map,
+easyaddress-schools .all-schools {
+	max-width: 800px;
+	width: 100%;
+}
+
+easyaddress-search .result {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	margin: 4px 0;
+}
+easyaddress-search .result.loading {
+	background-color: #f2f2f2;
+}
+easyaddress-search .schools {
+	display: none;
+	position: relative;
+}
+
+easyaddress-search .map {
+	height: 500px;
+	border: 1px solid var(--primary, --primary-default);
+}
+
+easyaddress-search .autocomplete-items {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+}
+
+easyaddress-search .autocomplete-items div {
+	padding: 10px;
+	cursor: pointer;
+	background-color: var(--primary-contrast, #fff);
+	border-bottom: 1px solid #d4d4d4;
+}
+
+easyaddress-search .autocomplete-items div:hover {
+	/*when hovering an item:*/
+	background-color: #e9e9e9;
+}
+
+easyaddress-search .autocomplete-active {
+	/*when navigating through the items using the arrow keys:*/
+	background-color: var(--primary, --primary-default) !important;
+	color: var(--primary-contrast, #fff);
+}
+
+easyaddress-search .result .address {
+	margin-top: 8px;
+}
+
+easyaddress-search .program-schools .program-name {
+	padding: .7rem .6rem 0;
+	font-size: .9rem;
+	color: var(--primary, --primary-default);
+	border-top: 1px solid #ddd;
+}
+
+easyaddress-search .school-list .school {
+	cursor: pointer;
+	border-left: .5rem solid var(--primary, --primary-default);
+	border-top: 1px solid #ddd;
+	padding: .3rem 0;
+	display: flex;
+}
+
+easyaddress-search .school .grades {
+	font-size: 1.2rem;
+	color: var(--primary, --primary-default);
+	line-height: 2.8rem;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	border: 1px solid var(--primary, --primary-default);
+	align-self: center;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 0 .8rem;
+	flex: 0 0 3rem;
+}
+
+easyaddress-search .school .details {
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+easyaddress-search .school .details .name-address {
+	flex-basis: 250px;
+	flex-grow: 1;
+}
+
+easyaddress-search .school .details .school-name {
+	color: var(--primary, --primary-default);
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+easyaddress-search .school-programs {
+	display: none;
+	padding-left: 4.6rem;
+	padding-bottom: 0.5rem;
+}
+easyaddress-schools .school-programs {
+	margin-left: 1rem;
+	margin-top: 0.4rem;
+}
+easyaddress-search .school-programs .program-name {
+	border-top: none;
+}
+easyaddress-search .school-programs .grades-list {
+	margin-left: 0.5rem;
+	margin-top: 0.1rem;
+}
+easyaddress-search .school-attributes,
+easyaddress-schools .school-attributes {
+	margin-left: 0.5rem;
+	margin-top: 0.5rem;
+}
+easyaddress-search .school-attributes .attribute,
+easyaddress-schools .school-attributes .attribute {
+	margin-top: 0.1rem;
+}
+easyaddress-search .school-attributes .attribute-name,
+easyaddress-schools .school-attributes .attribute-name {
+	font-size: .9rem;
+	display: inline-block;
+	min-width: 100px;
+	opacity: 0.7;
+}
+easyaddress-search .school-attributes .attribute-value,
+easyaddress-schools .school-attributes .attribute-value {
+	color: var(--primary, --primary-default);
+}
+
+easyaddress-search .school .details .school-address {
+	font-size: .9rem;
+	color: #666;
+}
+
+easyaddress-schools .all-schools table {
+	border-collapse: collapse;
+    vertical-align: top;
+	border-spacing: 0;
+	width: 100%;
+}
+easyaddress-schools .all-schools table thead tr {
+	background-color: var(--primary, --primary-default) !important;
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+	text-align: left;
+}
+easyaddress-schools .all-schools table tr:nth-child(odd) {
+	background: #f9f9f9;
+}
+easyaddress-schools .all-schools table tbody tr:hover {
+	background: #f2f2f2;
+}
+easyaddress-schools .all-schools table .school-row {
+	cursor: pointer;
+}
+easyaddress-schools .all-schools table .caret {
+	display: inline-block;
+	transform: rotate(-90deg);
+	transition: transform linear 0.15s;
+	vertical-align: middle;
+	vertical-align: middle;
+}
+easyaddress-schools .all-schools table .expanded .caret {
+	transform: rotate(0);
+}
+easyaddress-schools .all-schools table .school-name {
+	margin-left: 12px;
+}
+easyaddress-schools .all-schools table th,
+easyaddress-schools .all-schools table td {
+	vertical-align: top;
+	padding: 15px;
+	border: 1px solid #ddd;
+}
+
+@media (min-width: 1200px) {
+	easyaddress-search .autocomplete,
+	easyaddress-search .result,
+	easyaddress-search .map,
+	easyaddress-schools .all-schools {
+		max-width: 1200px;
+	}
+
+	easyaddress-search .result {
+		flex-direction: row;
+	}
+
+	easyaddress-search .map {
+		height: 600px;
+	}
+
+	easyaddress-search .schools {
+		flex: 0 0 400px;
+	}
+	easyaddress-search .map {
+		flex: 1 0 0px;
+	}
+}
