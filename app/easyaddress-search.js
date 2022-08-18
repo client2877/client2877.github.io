@@ -364,7 +364,7 @@
   function onContentLoaded() {
     if (buildMarkup()) {
       cx.resultDiv.classList.add("loading");
-      cx.lookupPromise = apiGet("/data/GetLookup.json");
+      cx.lookupPromise = apiGet("/GetLookup.json");
       cx.lookupPromise.then((r) => {
         cx.resultDiv.classList.remove("loading");
         cx.districtId = r.districtId;
