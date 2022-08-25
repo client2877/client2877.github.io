@@ -348,7 +348,7 @@
   function apiGet(path) {
     return new Promise((resolve, reject) => {
       const url = window.location.origin + path;
-      console.log(path);
+      //  console.log(path);
       const request = new XMLHttpRequest();
       request.open("GET", url, true);
       request.withCredentials = true;
